@@ -81,8 +81,13 @@ class Hero {
           this.reset();
       }
     }
-    //check win
-      //Did player positon win game?
+    if(this.y === 55) {
+      console.log('win!');
+    }
+  }
+  reset() {
+    this.y = this.startY;
+    this.x = this.startX;
   }
 }
 
