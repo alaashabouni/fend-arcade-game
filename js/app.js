@@ -43,6 +43,7 @@ class Hero {
     this.x = this.startX;
     this.y = this.startY;
     this.sprite = 'images/char-boy.png';
+    this.victory = false;
   }
   render (){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -82,7 +83,7 @@ class Hero {
       }
     }
     if(this.y === 55) {
-      console.log('win!');
+      this.victory = true;
     }
   }
   reset() {
