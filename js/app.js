@@ -1,4 +1,4 @@
-// Enemies our player must avoid
+// Enemies player must avoid
 var Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y + 55;
@@ -9,17 +9,9 @@ var Enemy = function(x, y, speed) {
     this.resetPos = -this.step;
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+// Update the enemy's position
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
-    //if enemy is not passed boundary
     if(this.x < this.boundary) {
-      //move forward
-      //Increment x by speed * dt
       this.x += this.speed * dt;
     }
 
@@ -28,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     }
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -42,17 +34,17 @@ class Hero {
     this.startY = (this.jump * 4) + 55;
     this.x = this.startX;
     this.y = this.startY;
-    this.sprite = 'images/char-boy.png';
+    this.sprite = 'images/char-pink-girl.png';
     this.victory = false;
   }
   render (){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-
+  //how player moves on board + boundaries
     handleInput(input) {
       switch(input) {
         case 'left':
-          if (this.x >0) {
+          if (this.x > this.jump) {
               this.x -= this.step;
             }
           break;
@@ -67,16 +59,15 @@ class Hero {
             }
           break;
         case 'down':
-          if (this.y < this.jump * 5){
+          if (this.y < this.jump * 4){
               this.y += this.jump;
             }
           break;
         }
     }
   update() {
-    //check collision
     for(let enemy of allEnemies){
-      //Did player colide with enemy?
+      //Did player colide with enemy? if so, reset player position to start
       if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x
       && enemy.x < this.x + this.step/2)) {
           this.reset();
@@ -92,27 +83,16 @@ class Hero {
   }
 }
 
-    //methods
-      //update position
-
-      //render
-          //Draw player sprite on x and y coord
-      //Handle keyboard input
-      //Reset hero
-          //set to startin x and y position
-
-//New Hero object - in a variable called player
 const player = new Hero();
 const bug1 = new Enemy(-101, 0, 200);
 const bug2 = new Enemy(-101, 83, 300);
 const bug3 = new Enemy((-101*2.5), 83, 300);
+const bug4 = new Enemy(-101, 166, 100);
 const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3);
-console.log(allEnemies);
+allEnemies.push(bug1, bug2, bug3, bug4);
 
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
