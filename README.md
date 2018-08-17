@@ -9,7 +9,7 @@ frontend-arcade-game
 3. Follow game instructions below
 
 ### Method 2
-1. Click here to play the game
+1. Click [here](https://htmlpreview.github.io/?https://github.com/alaashabouni/fend-arcade-game/blob/master/index.html) to play the game
 2. Follow game instructions below
 
 
