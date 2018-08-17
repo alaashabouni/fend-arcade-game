@@ -56,16 +56,14 @@ body {
 }
 
 .score-panel {
-    text-align: center;
-    width: 345px;
-    margin-bottom: 10px;
-}
-
-.score-panel {
     margin: 0;
     padding: 0;
-    display: inline-block;
-    margin: 10px 5px 0 0;
+    display: flex;
+    padding-left: 43%;
+    padding-top: 5%;
     font-size: 25px;
     cursor: pointer;
+    text-align: center;
+    width: 345px;
+    margin-bottom: 1px;
 }
