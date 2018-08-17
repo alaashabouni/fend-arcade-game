@@ -49,7 +49,7 @@ class Hero {
             }
           break;
         case 'up':
-          if (this.y > this.jump) {
+          if (this.y > -30) {
               this.y -= this.jump;
             }
           break;
@@ -73,8 +73,10 @@ class Hero {
           this.reset();
       }
     }
-    if(this.y === 55) {
+    if(this.y === -28) {
       this.victory = true;
+      timerStop();
+      writePopupStats();
     }
   }
   reset() {
@@ -90,16 +92,60 @@ const bug3 = new Enemy((-101*2.5), 83, 300);
 const bug4 = new Enemy(-101, 166, 100);
 const allEnemies = [];
 allEnemies.push(bug1, bug2, bug3, bug4);
+let clockId;
+let clockOff = true;
+let time = 0;
 
 
-// This listens for key presses and sends the keys to your
+// This listens for key presses
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
         40: 'down'
+      }
+      if (clockOff) {
+          timerStart();
+          clockOff = false;
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//Game timer
+function timerStart() {
+  clockId = setInterval(() => {
+    time++;
+    showTime();
+  }, 1000);
+}
+
+function showTime() {
+  const minutes = Math.floor(time/60);
+  const seconds = time % 60;
+  const clock = document.querySelector('.clock');
+  if (seconds < 10) {
+    clock.innerHTML = `${minutes}:0${seconds}`;
+  } else {
+    clock.innerHTML =`${minutes}:${seconds}`;
+  }
+}
+
+function timerStop() {
+  clearInterval(clockId);
+}
+
+function resetClockAndTime() {
+  timerStop();
+  clockOff = true;
+  time = 0;
+  showTime();
+}
+
+function writePopupStats() {
+  const timeStat = document.querySelector('.popup-time');
+  const clockTime = document.querySelector('.clock').innerHTML;
+
+  timeStat.innerHTML = `Time = ${clockTime}`;
+}

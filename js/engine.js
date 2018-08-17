@@ -17,6 +17,7 @@ var Engine = (function(global) {
       player.reset();
       player.victory = false;
       win.requestAnimationFrame(main);
+      resetClockAndTime();
   });
 
     canvas.width = 505;
@@ -116,7 +117,7 @@ var Engine = (function(global) {
 
     //game reset states
     function reset() {
-        
+
     }
 
     Resources.load([

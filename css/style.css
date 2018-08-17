@@ -47,3 +47,25 @@ body {
 .hide {
   display: none;
 }
+
+.popup-stats {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  padding: 1rem;
+}
+
+.score-panel {
+    text-align: center;
+    width: 345px;
+    margin-bottom: 10px;
+}
+
+.score-panel {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 10px 5px 0 0;
+    font-size: 25px;
+    cursor: pointer;
+}

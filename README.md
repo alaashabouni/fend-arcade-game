@@ -9,7 +9,7 @@ frontend-nanodegree-arcade-game
 3. Follow game instructions below
 
 ### Method 2
-1. Click here to play the game 
+1. Click here to play the game
 2. Follow game instructions below
 
 
@@ -20,12 +20,13 @@ frontend-nanodegree-arcade-game
 - If you collide with and enemy bug, player will be reset to starting position
 
 ### How to win
-- Object of the game is reach the river without colliding with enemies
+- Reach the river without colliding with enemies as fast as you can
 - Once you reach the other end of the board you have won!
 - You can restart the game once you have reached the river
+- Try to beat your best time!
 
 
 # Acknowledgements
-Matthew Crawford's blog post walkthrough series of the arcade game, provided helpful explanations during the development of this project.
+Matthew Crawford's blog post walkthrough series of the arcade game provided helpful explanations during the development of this project
 
 Udacity turtle_squad group provided motivation and small bug fix hints and tips
